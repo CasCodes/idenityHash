@@ -43,7 +43,7 @@ def draw(grid: list[chr]):
     for i in range(50):
         
         for j in range(25):  # only fill the first 3 columns
-            if grid[i * 25 + j] % 4 == 0 or grid[i * 25 + j] % 4 == 1 or grid[i * 25 + j] % 4 == 2 :
+            if grid[i * 25 + j] % 2 == 0:
                 grid_array[i, j] = color1
                 grid_array[i, 49 - j] = color1  # mirror on x = 3 axis
             else:
