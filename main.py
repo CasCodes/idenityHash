@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-s = "aad"
+s = "Hello, world!"
 MIN_HASH_LEN = 1250
 
 # polynomial rolling hash function
@@ -19,8 +19,6 @@ def hash(s: str):
     
     return str(sum)
 
-print(hash(s))
-
 def to_grid(hsh: str):
     grid = []
     
@@ -34,9 +32,6 @@ def draw(grid: list[chr]):
     # set rgb colors
     color1 = (grid[0] / 9, grid[1] / 9, grid[2] / 9)
     color2 = (grid[29] / 9, grid[28] / 9, grid[27] / 9)
-
-    
-    
     # create a 5x5 grid
     grid_array = np.ones((50, 50, 3))
 
