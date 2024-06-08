@@ -21,22 +21,40 @@ def hash(s: str):
 
 def to_grid(hsh: str):
     grid = []
-    
     # get values
     for i in range(MIN_HASH_LEN): 
         grid.append(int(hsh[i]))
-    
     return grid
+
+def cluster(grid):
+    new_grid = []
+
+    print(len(grid))
+
+    for i in range(0, len(grid), 5):
+        sum = 0
+        for j in range(5): # get average of 5x5 blocks
+            sum += grid[i + j]
+        
+        sum = sum / 5
+        for j in range(5):
+            new_grid.append(sum)
+   
+    print(len(new_grid))
+    return new_grid
+
 
 def draw(grid: list[chr]):
     # set rgb colors
     color1 = (grid[0] / 9, grid[1] / 9, grid[2] / 9)
     color2 = (grid[29] / 9, grid[28] / 9, grid[27] / 9)
+
+    # cluster 
+    grid = cluster(grid)
     # create a 5x5 grid
     grid_array = np.ones((50, 50, 3))
 
     for i in range(50):
-        
         for j in range(25):  # only fill the first 3 columns
             if grid[i * 25 + j] % 2 == 0:
                 grid_array[i, j] = color1
